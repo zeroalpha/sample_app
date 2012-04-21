@@ -1,0 +1,30 @@
+<table>
+	<tr>
+		<td>
+			<h1>
+				<%= gravatar_for @user %>
+				<%= @user.name %>
+			</h1>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td>
+						<strong>Name:</strong>
+					</td>
+					<td>
+						<%= @user.name%>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<strong>URL :</strong>
+					</td>
+					<td>
+						 <%= link_to user_path(@user),@user%>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
