@@ -7,7 +7,7 @@ gem 'rails', '3.2.2'
 
 
 gem 'gravatar_image_tag'
-gem 'activerecord-postgresql-adapter'
+gem 'pg'
 
 group :development do
 
