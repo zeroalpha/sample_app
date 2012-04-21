@@ -123,8 +123,7 @@ describe User do
       it "should return a valid user if email/password is correct" do
         User.authenticate(@attr[:email],@attr[:password]).should == @user
       end
-      
-    
+          
     end
     
   end
