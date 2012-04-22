@@ -6,14 +6,17 @@ gem 'rails', '3.2.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'gravatar_image_tag'
-gem 'pg'
+
+group :production do
+  gem 'pg'
+end
 
 group :development do
-
+  gem 'pg'
   gem 'rspec-rails'
 end
 group :test do
-  gem 'sqlite3'
+  gem 'pg'
   gem 'autotest'
   gem 'autotest-notification'
   gem 'autotest-growl'
