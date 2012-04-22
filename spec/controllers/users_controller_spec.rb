@@ -12,7 +12,47 @@ describe UsersController do
       get 'new'
       response.should have_selector("title", :content => "Sign up")
     end
+  end 
+  
+  describe "POST 'create'" do
+    before(:each) do
+      @atrr = {:name => "", :email => "", :password => "", :password_confirmation => ""}
+    end
+    
+    it "should not create a user" do
+      lambda do
+        post :create, :user => @attr
+      end.should_not change(User, :count)
+    end
+    
+    it "should have the right title" do
+      post :create, :user => @attr
+      response.should have_selector("title",:content => "Sign up")
+    end
+    
+    it "should render the 'new' page" do
+      post :create, :user => @attr
+      response.should render_template(:new) #FIXME mal mit :new versuchen !!
+    end
+    
+    describe "on success" do
+      before(:each) do
+        @atrr = {:name => "New User", :email => "user@example.com", :password => "foobar", :password_confirmation => "foobar"}
+      end
+      
+      it "should create a user" do
+        lambda do
+          post :create, :user => @attr
+        end.should change(User, :count).by(1)
+      end
+      it "should redirect to the users homepage " do
+        post :create, :user => @attr
+        response.should redirect_to(user_path(assigns(:user)))
+      end      
+    end
+    
   end
+    
   
   describe "GET 'show'" do
     before(:each) do
@@ -40,6 +80,6 @@ describe UsersController do
       get :show, :id => @user.id
       response.should have_selector("h1>img",:class => "gravatar")
     end
-  end   
+  end
   
 end
