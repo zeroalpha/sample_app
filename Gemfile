@@ -6,6 +6,8 @@ gem 'rails', '3.2.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'gravatar_image_tag'
+gem 'coderay'
+
 
 group :production do
   gem 'pg'

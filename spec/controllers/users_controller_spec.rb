@@ -37,7 +37,7 @@ describe UsersController do
     
     describe "on success" do
       before(:each) do
-        @atrr = {:name => "New User", :email => "user@example.com", :password => "foobar", :password_confirmation => "foobar"}
+        @attr = {:name => "New User", :email => "user@example.com", :password => "foobar", :password_confirmation => "foobar"}
       end
       
       it "should create a user" do
@@ -48,11 +48,14 @@ describe UsersController do
       it "should redirect to the users homepage " do
         post :create, :user => @attr
         response.should redirect_to(user_path(assigns(:user)))
+      end
+      it "should have a welcome message" do
+        post :create, :user => @attr
+        flash[:success].should =~ /welcome to the sample app/i
       end      
     end
     
-  end
-    
+  end    
   
   describe "GET 'show'" do
     before(:each) do

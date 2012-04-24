@@ -2,7 +2,7 @@
   width: 710px;
 }
 body {
-  background: #EBFAFF;
+  background: #000064;
 }
 header {
   padding-top: 20px;
@@ -90,6 +90,11 @@ footer {
 footer nav {
   float: none;
 }
+/*Debug information*/
+.debug_dump {
+	color: #fff
+}
+
 /*User show page*/
 table.profile {
 	width: 100%;
